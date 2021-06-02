@@ -5,5 +5,7 @@
   tasks:
   - name: Running script
     ansible.builtin.script: os.py
+    args:
+      executable: python
     register: output
   - debug: var=output.stdout_lines
