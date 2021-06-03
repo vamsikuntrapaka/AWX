@@ -1,0 +1,11 @@
+---
+- hosts: all
+  gather_facts: yes
+  become: false
+  tasks:
+  - name: copy script
+    copy: src=os.py dest=/tmp/os.py mode=777
+  - name: Execute script
+    command: /tmp/os.py
+    register: output
+  - debug: var=output.stdout_lines
